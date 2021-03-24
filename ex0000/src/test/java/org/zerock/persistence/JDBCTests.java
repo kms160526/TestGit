@@ -6,6 +6,8 @@ import org.junit.Test;
 import java.sql.Connection;
 import java.sql.DriverManager;
 
+import static org.junit.Assert.fail;
+
 @Log4j
 public class JDBCTests {
     static {
@@ -25,8 +27,8 @@ public class JDBCTests {
 
             log.info(con);
         } catch(Exception e){
-            e.printStackTrace();
-//            fail(e.getMessage());
+//            e.printStackTrace();
+            fail(e.getMessage());
         }
 
     }
