@@ -1,6 +1,7 @@
 package org.zerock.controller;
 
 import lombok.extern.log4j.Log4j;
+import oracle.jdbc.proxy.annotation.Post;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -8,6 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 import org.zerock.domain.SampleDTO;
 import org.zerock.domain.SampleDTOList;
 import org.zerock.domain.TodoDTO;
@@ -126,6 +128,22 @@ public class SampleController {
         header.add("Content-Type", "application/json;charset=UTF-8");
 
         return new ResponseEntity<>(msg, header, HttpStatus.OK);
+    }
+
+    @GetMapping("/exUpload")
+    public void exUpload(){
+        log.info("exUpload..........");
+    }
+
+    @PostMapping("/exUploadPost")
+    public void exUploadPost(ArrayList<MultipartFile> files){
+        log.info("exUpload ..............");
+        files.forEach(file -> {
+            log.info("---------------------");
+            log.info("name: " + file.getOriginalFilename());
+            log.info("size : " + file.getSize());
+
+        });
     }
 
 }
