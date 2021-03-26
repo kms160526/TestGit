@@ -25,6 +25,14 @@
       </list>
     </option>
   </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
   <component name="LogFilters">
     <option name="FILTER_ERRORS" value="false" />
     <option name="FILTER_WARNINGS" value="false" />
@@ -158,7 +166,7 @@
       <option name="presentableId" value="Default" />
       <updated>1616718245640</updated>
       <workItem from="1616718246779" duration="1739000" />
-      <workItem from="1616720043402" duration="7376000" />
+      <workItem from="1616720043402" duration="8283000" />
     </task>
     <servers />
   </component>
