@@ -11,7 +11,7 @@
 <bean id="hikariConfig" class="com.zaxxer.hikari.HikariDataSource" destroy-method="close">
 <!--        <constructor-arg ref="hikariConfig"/>-->
 <property name="driverClassName" value="net.sf.log4jdbc.sql.jdbcapi.DriverSpy"></property>
-<property name="jdbcUrl" value="jdbc:log4jdbc:oracle:thin:@192.168.106.143:1521:orcl"></property>
+<property name="jdbcUrl" value="jdbc:log4jdbc:oracle:thin:@localhost:1521:XE"></property>
 <property name="username" value="book_ex"></property>
 <property name="password" value="book_ex"></property>
         </bean>
@@ -24,5 +24,5 @@
 <property name="dataSource" ref="dataSource"></property>
         </bean>
 <mybatis-spring:scan base-package="org.zerock.mapper" />
-<!--<context:component-scan base-package="org.zerock.sample"></context:component-scan>-->
+<context:component-scan base-package="org.zerock"/>
         </beans>

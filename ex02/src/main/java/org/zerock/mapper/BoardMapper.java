@@ -6,7 +6,8 @@ import org.zerock.domain.BoardVO;
 import java.util.List;
 
 public interface BoardMapper {
-    @Select("select * from tbl_board where bno > 0")
+    // XML 에서 SQL문을 처리하였으므로 인터페이스의 SQL문을 제거
+    // 제거 이후에는 테스트코드를 통해서 기존과 동일하게 작동하는지 확인해야함.
     public List<BoardVO> getList();
 
 }
