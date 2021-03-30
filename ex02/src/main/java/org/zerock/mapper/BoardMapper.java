@@ -19,4 +19,7 @@ public interface BoardMapper {
 
     // 8.2.3 delete 처리
     public int delete(Long bno);
+
+    // 8.2.4 update 처리
+    public int update(BoardVO board);
 }
