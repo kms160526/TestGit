@@ -9,6 +9,8 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.zerock.domain.BoardVO;
 
+import java.util.List;
+
 import static org.junit.Assert.assertNotNull;
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -37,4 +39,11 @@ public class BoardServiceTests {
 
         log.info("생성된 게시물의 번호 : " + board.getBno());
     }
+
+    // testGetList
+    @Test
+    public void testGetList(){
+        service.getList().forEach(board -> log.info(board));
+    }
+
 }
