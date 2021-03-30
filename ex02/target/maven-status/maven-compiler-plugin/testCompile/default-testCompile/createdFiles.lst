@@ -1,2 +1,3 @@
 org/zerock/persistence/DataSourceTests.class
+org/zerock/mapper/BoardMapperTests.class
 org/zerock/persistence/JDBCTests.class
