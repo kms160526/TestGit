@@ -51,4 +51,12 @@ public class BoardMapperTests {
         log.info(board);
     }
 
+    // 현재 테이블에 존재하는 데이터의 bno 칼럼의 값을 이용해서 테스트 코드를 확인
+    @Test
+    public void testRead(){
+        // 존재하는 게시물 번호로 테스트
+        BoardVO board = mapper.read(5L);
+        log.info(board);
+
+    }
 }
