@@ -59,4 +59,12 @@ public class BoardMapperTests {
         log.info(board);
 
     }
+
+    // delete 테스트 코드 제대로 작동하는지 확인하기
+    @Test
+    public void testDelete(){
+        log.info("DELETE COUNT : " + mapper.delete(3L));
+    }
+
+
 }
