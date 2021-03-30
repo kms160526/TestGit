@@ -10,4 +10,8 @@ public interface BoardMapper {
     // 제거 이후에는 테스트코드를 통해서 기존과 동일하게 작동하는지 확인해야함.
     public List<BoardVO> getList();
 
+    // 8.1.2 메소드 추가
+    public void insert(BoardVO board);
+
+    public void insertSelectKey(BoardVO board);
 }
