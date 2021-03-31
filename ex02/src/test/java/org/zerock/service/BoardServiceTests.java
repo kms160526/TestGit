@@ -46,4 +46,32 @@ public class BoardServiceTests {
         service.getList().forEach(board -> log.info(board));
     }
 
+    // testGet
+
+    @Test
+    public void testGet(){
+
+        log.info(service.get(1L));
+    }
+
+    // Delete
+    // Impl에서 이름은 remove 인데 test에선 Delete로 작성?
+    @Test
+    public void testDelete(){
+        // 게시물 번호의 존재 여부를 확인하고 테스트할 것
+        log.info("REMOVE RESULT: " + service.remove(2L));
+    }
+
+    // modify Test
+    @Test
+    public void testUpdate(){
+        BoardVO board = service.get(1L);
+
+        if(board == null){
+            return;
+        }
+
+        board.setTitle("제목 수정합니다.");
+        log.info("MODIFY RESULT: " + service.modify(board));
+    }
 }
