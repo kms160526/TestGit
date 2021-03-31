@@ -55,4 +55,15 @@ public class BoardControllerTests {
 
         log.info(resultPage);
     }
+
+    // testGet
+    @Test
+    public void testGet() throws Exception{
+
+        log.info(mockMvc.perform(MockMvcRequestBuilders
+        .get("/board/get")
+        .param("bno", "2"))
+        .andReturn()
+        .getModelAndView().getModelMap());
+    }
 }
