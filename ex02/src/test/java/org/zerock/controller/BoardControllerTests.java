@@ -80,4 +80,15 @@ public class BoardControllerTests {
 
         log.info(resultPage);
     }
+
+    // 10.2.5 삭제 처리와 테스트
+    @Test
+    public void testRemove() throws Exception{
+        // 삭제 전 데이터베이스에 게시물 번호 확인할 것
+        String resultPage = mockMvc.perform(MockMvcRequestBuilders.post("/board/remove")
+        .param("bno", "9")
+        ).andReturn().getModelAndView().getViewName();
+
+        log.info(resultPage);
+    }
 }
