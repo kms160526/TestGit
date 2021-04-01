@@ -1,3 +1,5 @@
 /Users/kimminsu/Documents/SpringProject/ex02/src/test/java/org/zerock/persistence/JDBCTests.java
 /Users/kimminsu/Documents/SpringProject/ex02/src/test/java/org/zerock/persistence/DataSourceTests.java
 /Users/kimminsu/Documents/SpringProject/ex02/src/test/java/org/zerock/mapper/BoardMapperTests.java
+/Users/kimminsu/Documents/SpringProject/ex02/src/test/java/org/zerock/controller/BoardControllerTests.java
+/Users/kimminsu/Documents/SpringProject/ex02/src/test/java/org/zerock/service/BoardServiceTests.java

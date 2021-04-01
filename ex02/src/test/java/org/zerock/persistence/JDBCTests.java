@@ -23,7 +23,6 @@ public class JDBCTests {
                 "jdbc:oracle:thin:@localhost:1521:XE",
                 "book_ex",
                 "book_ex")){
-
             log.info(con);
         } catch(Exception e){
 //            e.printStackTrace();
