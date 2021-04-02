@@ -47,7 +47,7 @@
                     <label>RegDate</label><input class="form-control" name='regDate' value='<fmt:formatDate pattern="yyyy/MM/dd" value="${board.regdate}" />' readonly="readonly">
                 </div>
                 <div class="form-group">
-                    <label>Writer</label><input class="form-control" name='writer' value='<fmt:formatDate pattern="yyyy/MM/dd" value="${board.updateDate}" />'  readonly="readonly">
+                    <label>Writer</label><input class="form-control" name='updateDate' value='<fmt:formatDate pattern="yyyy/MM/dd" value="${board.updateDate}" />'  readonly="readonly">
                 </div>
 
                 <button type="submit" data-oper='modify' class="btn btn-default">Modify</button>
@@ -64,7 +64,7 @@
 <!-- /.row -->
 
 <%@include file="../includes/footer.jsp" %>
-<script>
+<script type="text/javascript">
     $(document).ready(function(){
 
         var formObj = $("form");
@@ -81,9 +81,10 @@
                formObj.attr("action", "/board/remove");
            }else if(operation == 'list'){
                // move to list
-               self.location= "/board/list";
-               return;
+               formObj.attr("action", "/board/list").attr("method", "get");
+               formObj.empty();
            }
+
            formObj.submit();
 
        });
