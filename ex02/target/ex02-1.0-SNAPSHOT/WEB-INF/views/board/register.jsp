@@ -52,3 +52,6 @@
 <!-- /.row -->
 
 <%@include file="../includes/footer.jsp" %>
+</body>
+
+</html>
