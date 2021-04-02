@@ -68,4 +68,11 @@ public class BoardController {
         return "redirect:/board/list";
     }
 
+    // 11.3 등록 입력 페이지와 등록 처리
+    @GetMapping("/register")
+    public void register(){
+
+    }
+
+
 }
