@@ -2,6 +2,7 @@ package org.zerock.mapper;
 
 import org.apache.ibatis.annotations.Select;
 import org.zerock.domain.BoardVO;
+import org.zerock.domain.Criteria;
 
 import java.util.List;
 
@@ -22,4 +23,7 @@ public interface BoardMapper {
 
     // 8.2.4 update 처리
     public int update(BoardVO board);
+
+    // 13.1 MyBatis 처리와 테스트
+    public List<BoardVO> getListWithPaging(Criteria cri);
 }
