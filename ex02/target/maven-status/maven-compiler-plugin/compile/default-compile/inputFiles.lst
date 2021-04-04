@@ -4,3 +4,4 @@
 /Users/kimminsu/Documents/SpringProject/ex02/src/main/java/org/zerock/domain/BoardVO.java
 /Users/kimminsu/Documents/SpringProject/ex02/src/main/java/org/zerock/service/BoardServiceImpl.java
 /Users/kimminsu/Documents/SpringProject/ex02/src/main/java/org/zerock/controller/BoardController.java
+/Users/kimminsu/Documents/SpringProject/ex02/src/main/java/org/zerock/domain/PageDTO.java
