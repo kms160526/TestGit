@@ -60,4 +60,12 @@ public class BoardServiceImpl implements BoardService{
 
         return mapper.getListWithPaging(cri);
     }
+
+    // 14.6 MyBatis에서 전체 데이터의 개수 처리
+    @Override
+    public int getTotal(Criteria cri) {
+
+        log.info("get total count");
+        return mapper.getTotalCount(cri);
+    }
 }

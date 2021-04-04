@@ -19,4 +19,7 @@ public interface BoardService {
 
     public List<BoardVO> getList(Criteria cri);
 
+    // 14.6 MyBatis에서 전체 데이터의 개수 처리
+    public int getTotal(Criteria cri);
+
 }

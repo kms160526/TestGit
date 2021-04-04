@@ -26,4 +26,7 @@ public interface BoardMapper {
 
     // 13.1 MyBatis 처리와 테스트
     public List<BoardVO> getListWithPaging(Criteria cri);
+
+    // 14.6 MyBatis에서 전체 데이터의 개수 처리
+    public int getTotalCount(Criteria cri);
 }
