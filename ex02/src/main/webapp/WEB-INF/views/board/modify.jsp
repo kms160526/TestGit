@@ -56,9 +56,9 @@
                 <button type="submit" data-oper='modify' class="btn btn-default">Modify</button>
                 <button type="submit" data-oper='remove' class="btn btn-danger">Remove</button>
                 <button type="submit" data-oper='list' class="btn btn-info">List</button>
+            </form>
             </div>
             <!-- /.panel-body -->
-            </form>
         </div>
         <!-- /.panel -->
     </div>
@@ -76,22 +76,27 @@
 
            e.preventDefault();
 
-           var operation = $(this).data("oper");
+            var operation = $(this).data("oper");
 
-           console.log(operation);
+            console.log(operation);
 
-           if(operation == 'remove'){
-               formObj.attr("action", "/board/remove");
-           }else if(operation == 'list'){
-               // move to list
-               formObj.attr("action", "/board/list").attr("method", "get");
-               formObj.empty();
-           }
+            if(operation == 'remove'){
+            formObj.attr("action", "/board/remove");
+            }else if(operation == 'list'){
+            // move to list
+            formObj.attr("action", "/board/list").attr("method", "get");
+            var pageNumTag = $("input[name='pageNum']").clone();
+            var amountTag = $("input[name='amount']").clone();
 
-           formObj.submit();
+            formObj.empty();
+            formObj.append(pageNumTag);
+            formObj.append(amountTag);
+            }
 
-       });
-    });
+            formObj.submit();
+
+            });
+        });
 </script>
 
 </body>
