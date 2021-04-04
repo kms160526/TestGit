@@ -21,12 +21,15 @@
     <div class="col-lg-12">
         <div class="panel panel-default">
             <div class="panel-heading">
-                Board Read page
+                Board Modify page
             </div>
             <!-- /.panel-heading -->
-            <form role="form" action="/board/modify" method="post">
-
             <div class="panel-body">
+            <form role="form" action="/board/modify" method="post">
+                <!-- 추가 -->
+                <input type='hidden' name='pageNum' value='<c:out value="${cri.pageNum}">'>
+                <input type='hidden' name='amount' value='<c:out value="${cri.amount}">'>
+
                 <div class="form-group">
                     <label>Bno</label> <input class="form-control" name='bno' value='<c:out value="${board.bno}"/>' readonly="readonly">
                 </div>
