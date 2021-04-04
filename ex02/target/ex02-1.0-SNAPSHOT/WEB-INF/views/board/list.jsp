@@ -46,6 +46,29 @@
                         </tr>
                     </c:forEach>
                 </table>
+
+                    <div class='pull-right'>
+                        <ul class="pagination">
+
+                            <c:if test="${pageMaker.prev}">
+                                <li class="paginate_button previous">
+                                    <a href="#">Previous</a>
+                                </li>
+                            </c:if>
+
+                            <c:forEach var="num" begin="${pageMaker.startPage}" end="${pageMaker.endPage}">
+                                <li class="paginate_button next"><a href="#">${num}</a></li>
+                            </c:forEach>
+
+                            <c:if test="${pageMaker.next}">
+                                <li class="paginate_button next">
+                                    <a href="#">Next</a>
+                                </li>
+                            </c:if>
+                        </ul>
+                    </div>
+                <!-- end Pagination -->
+
                 <!--모달추가 Modal-->
                 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
                      aria-hidden="true">
