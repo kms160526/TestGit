@@ -93,12 +93,20 @@ public class Hello {
         name[1] = new String("Min");
         name[2] = new String("Su");
         // 참조변수 name의 배열의 주소?
-        System.out.println(name);
+        System.out.println(name.toString());
+        System.out.println(name[0].toString());
+        System.out.println(name[1].toString());
+        System.out.println(name[2].toString());
 
-
+        recursiveCall();
     }
 
     public static int add(int a, int b){
         return a + b;
+    }
+
+    // 무한 재귀호출 테스트
+    public static void recursiveCall(){
+        recursiveCall();
     }
 }
