@@ -110,3 +110,21 @@ public class Hello {
         recursiveCall();
     }
 }
+
+// 7.5.2 참조변수의 형변환
+//class CastingTest2{
+//    public static void main(String[] args){
+//        Car car = new Car();
+//        Car car2 = null;
+//        FireEngine fe = null;
+//
+//        car.drive();
+//        fe = (FireEngine)car;
+//        fe.drive();
+//        car2 = fe;
+//        car2.drive();
+//        // fe = (FireEngine)car; 에서 에러가 발생, 컴파일은 된다.
+//        // -> Car car = new FireEngine(); 으로 수정해야 컴파일, 실행시 에러가 발생하지 않는다.
+//    }
+
+}
