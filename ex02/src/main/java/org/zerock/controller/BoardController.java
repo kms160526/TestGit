@@ -29,11 +29,7 @@ public class BoardController {
 
     @GetMapping("/list")
     public void list(Criteria cri, Model model)
-//            throws Exception
     {
-//        int div0 = 0;
-        int[] div0 = {1, 2, 3, 4};
-
         log.info("list: " + cri);
 
         model.addAttribute("list", service.getList(cri));
@@ -44,8 +40,6 @@ public class BoardController {
         log.info("total: " + total);
 
         model.addAttribute("pageMaker", new PageDTO(cri, total));
-        log.info(div0[5]);
-//        log.info(total/div0);
 
     }
 
