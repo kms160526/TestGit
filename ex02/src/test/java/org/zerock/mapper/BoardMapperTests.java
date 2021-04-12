@@ -98,4 +98,18 @@ public class BoardMapperTests {
         list.forEach(board -> log.info(board));
     }
 
+    // 15.3.1 테스트 실시
+    @Test
+    public void testSearch(){
+        Criteria cri = new Criteria();
+        cri.setKeyword("새로");
+        cri.setType("");
+
+        List<BoardVO> list = mapper.getListWithPaging(cri);
+
+        list.forEach(board -> log.info(board));
+
+    }
+
+
 }
