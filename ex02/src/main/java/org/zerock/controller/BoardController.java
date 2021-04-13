@@ -70,11 +70,15 @@ public class BoardController {
             rttr.addFlashAttribute("result", "success");
         }
 
-        // 수정 처리 후 이동 pageNum 관련
-        rttr.addAttribute("pageNum", cri.getPageNum());
-        rttr.addAttribute("amount", cri.getAmount());
+        // getListLink()를 이용하기 위해 주석처리`
+//        // 수정 처리 후 이동 pageNum 관련
+//        rttr.addAttribute("pageNum", cri.getPageNum());
+//        rttr.addAttribute("amount", cri.getAmount());
+//        // type 과 keyword 추가
+//        rttr.addAttribute("type", cri.getType());
+//        rttr.addAttribute("keyword", cri.getKeyword());
 
-        return "redirect:/board/list";
+        return "redirect:/board/list" + cri.getListLink();
     }
 
     // 10.2.5 삭제 처리와 테스트
@@ -85,11 +89,16 @@ public class BoardController {
         if(service.remove(bno)){
             rttr.addFlashAttribute("result", "success");
         }
-        // 삭제 처리 후 이동 pageNum 관련
-        rttr.addAttribute("pageNum", cri.getPageNum());
-        rttr.addAttribute("amount", cri.getAmount());
+        // getListLink()를 이용하기 위해 주석처리`
+//        // 수정 처리 후 이동 pageNum 관련
+//        rttr.addAttribute("pageNum", cri.getPageNum());
+//        rttr.addAttribute("amount", cri.getAmount());
+//        // type 과 keyword 추가
+//        rttr.addAttribute("type", cri.getType());
+//        rttr.addAttribute("keyword", cri.getKeyword());
 
-        return "redirect:/board/list";
+        return "redirect:/board/list" + cri.getListLink();
+
     }
 
     // 11.3 등록 입력 페이지와 등록 처리
