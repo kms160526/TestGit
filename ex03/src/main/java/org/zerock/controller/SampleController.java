@@ -7,6 +7,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.zerock.domain.SampleVO;
 
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
+
 @RestController
 @RequestMapping("/sample")
 @Log4j
@@ -35,6 +41,27 @@ public class SampleController {
         return new SampleVO(113, "로켓", "라쿤");
 
     }
+
+    // 16.2.3 컬렉션 타입의 객체 반환
+    @GetMapping(value = "/getList")
+    public List<SampleVO> getList(){
+
+        return IntStream.range(1, 10).mapToObj(i -> new SampleVO(i, i + "First", i + " Last"))
+                .collect(Collectors.toList());
+
+    }
+
+    // Map 형식
+    @GetMapping(value = "/getMap")
+    public Map<String, SampleVO> getMap(){
+
+        Map<String, SampleVO> map = new HashMap<>();
+        map.put("First", new SampleVO(111, "그루트", "주니어"));
+
+        return map;
+    }
+
+
 
 
 }
