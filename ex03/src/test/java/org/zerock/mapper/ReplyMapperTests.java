@@ -7,8 +7,10 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
+import org.zerock.domain.Criteria;
 import org.zerock.domain.ReplyVO;
 
+import java.util.List;
 import java.util.stream.IntStream;
 
 @RunWith(SpringRunner.class)
@@ -83,5 +85,16 @@ public class ReplyMapperTests {
         log.info("UPDATE COUNT: " + count);
     }
 
+    // @Param어노테이션과 댓글 목록
+    @Test
+    public void testList(){
+
+        Criteria cri = new Criteria();
+
+        // bnoArr[0] == 294916L
+        List<ReplyVO> replies = mapper.getListWithPaging(cri, bnoArr[0]);
+
+        replies.forEach(reply -> log.info(reply));
+    }
 
 }
