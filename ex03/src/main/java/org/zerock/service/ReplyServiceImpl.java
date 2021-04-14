@@ -1,5 +1,6 @@
 package org.zerock.service;
 
+import lombok.AllArgsConstructor;
 import lombok.Setter;
 import lombok.extern.log4j.Log4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,9 +13,11 @@ import java.util.List;
 
 @Service
 @Log4j
+@AllArgsConstructor
 public class ReplyServiceImpl implements ReplyService{
 
-    @Setter(onMethod_ = @Autowired)
+//    Setter로 잘 안되서 All ~ 로 수정
+//    @Setter(onMethod_ = @Autowired)
     private ReplyMapper mapper;
 
     @Override
