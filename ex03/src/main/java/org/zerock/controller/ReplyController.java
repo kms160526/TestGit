@@ -5,12 +5,12 @@ import lombok.extern.log4j.Log4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+import org.zerock.domain.Criteria;
 import org.zerock.domain.ReplyVO;
 import org.zerock.service.ReplyService;
+
+import java.util.List;
 
 @RequestMapping("/replies/")
 @RestController
@@ -38,5 +38,21 @@ public class ReplyController {
     }
 
     // 17.3.3 특정 게시물의 댓글 목록 확인
-    
+    @GetMapping(value = "/pages/{bno}/{page}",
+        produces = {
+            MediaType.APPLICATION_XML_VALUE,
+                MediaType.APPLICATION_JSON_VALUE
+        })
+    public ResponseEntity<List<ReplyVO>> getList(
+            @PathVariable("page") int page,
+            @PathVariable("bno") Long bno){
+
+        log.info("getList......");
+        Criteria cri = new Criteria(page, 10);
+        log.info(cri);
+
+        return new ResponseEntity<>(service.getList(cri, bno), HttpStatus.OK);
+    }
+
+
 }
