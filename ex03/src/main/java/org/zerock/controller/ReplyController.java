@@ -54,5 +54,43 @@ public class ReplyController {
         return new ResponseEntity<>(service.getList(cri, bno), HttpStatus.OK);
     }
 
+    // 17.3.4 댓글 삭제 / 조회
+    @GetMapping(value = "/{rno}",
+    produces = { MediaType.APPLICATION_XML_VALUE,
+    MediaType.APPLICATION_JSON_VALUE})
+    public ResponseEntity<ReplyVO> get(@PathVariable("rno") Long rno){
+
+        log.info("get: " + rno);
+
+        return new ResponseEntity<>(service.get(rno), HttpStatus.OK);
+    }
+
+    // 삭제
+    @DeleteMapping(value = "/{rno}", produces = { MediaType.TEXT_PLAIN_VALUE})
+    public ResponseEntity<String> remove(@PathVariable("rno") Long rno){
+
+        log.info("remove: " + rno);
+
+        return service.remove(rno) == 1
+                ? new ResponseEntity<>("success", HttpStatus.OK)
+                : new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+    }
+
+    // 17.3.5 댓글 수정
+    @RequestMapping(method = {RequestMethod.PUT, RequestMethod.PATCH}, value = "/{rno}",
+    consumes = "application/json", produces = { MediaType.TEXT_PLAIN_VALUE})
+    public ResponseEntity<String> modify(@RequestBody ReplyVO vo, @PathVariable("rno") Long rno){
+
+        vo.setRno(rno);
+        log.info("rno : " + rno);
+
+        log.info("modify: " + rno);
+
+        return service.modify(vo) == 1
+                ? new ResponseEntity<>("success", HttpStatus.OK)
+                : new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+    }
+
+
 
 }

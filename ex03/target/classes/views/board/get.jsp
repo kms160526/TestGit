@@ -60,6 +60,15 @@
 <!-- /.row -->
 
 <%@include file="../includes/footer.jsp" %>
+
+<script type="text/javascript" src="/resources/js/reply.js"></script>
+<script type="text/javascript">
+    $(document).ready(function(){
+
+        console.log(replyService);
+
+    });
+</script>
 <script type="text/javascript">
     $(document).ready(function(){
 
