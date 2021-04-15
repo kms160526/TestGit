@@ -1,4 +1,5 @@
 org/zerock/domain/BoardVO.class
+org/zerock/config/SwaggerConfig.class
 org/zerock/mapper/ReplyMapper.class
 org/zerock/controller/BoardController.class
 org/zerock/domain/ReplyVO.class
