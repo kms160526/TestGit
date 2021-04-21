@@ -1,5 +1,6 @@
 package org.zerock.mapper;
 
+import org.apache.ibatis.annotations.Param;
 import org.zerock.domain.BoardVO;
 import org.zerock.domain.Criteria;
 
@@ -27,4 +28,7 @@ public interface BoardMapper {
 
     // total
     public int getTotalCount(Criteria cri);
+
+    // 20.1.1 replyCnt를 업데이트 하는 메서드 추가
+    public void updateReplyCnt(@Param("bno") Long bno, @Param("amount") int amount);
 }

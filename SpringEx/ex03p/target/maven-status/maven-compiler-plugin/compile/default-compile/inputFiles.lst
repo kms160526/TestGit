@@ -6,6 +6,7 @@
 /Users/kimminsu/Documents/SpringEx/ex03p/src/main/java/org/zerock/service/ReplyServiceImpl.java
 /Users/kimminsu/Documents/SpringEx/ex03p/src/main/java/org/zerock/controller/SampleController.java
 /Users/kimminsu/Documents/SpringEx/ex03p/src/main/java/org/zerock/domain/BoardVO.java
+/Users/kimminsu/Documents/SpringEx/ex03p/src/main/java/org/zerock/domain/ReplyPageDTO.java
 /Users/kimminsu/Documents/SpringEx/ex03p/src/main/java/org/zerock/service/BoardServiceImpl.java
 /Users/kimminsu/Documents/SpringEx/ex03p/src/main/java/org/zerock/domain/Criteria.java
 /Users/kimminsu/Documents/SpringEx/ex03p/src/main/java/org/zerock/service/ReplyService.java
