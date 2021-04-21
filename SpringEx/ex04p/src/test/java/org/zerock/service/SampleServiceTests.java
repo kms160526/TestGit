@@ -27,7 +27,7 @@ public class SampleServiceTests {
     @Test
     public void testAdd() throws Exception{
 
-        log.info(service.doAdd("123", "4562"));
+        log.info(service.doAdd("123", "456"));
     }
 
     // 에러 발생시키기
