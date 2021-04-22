@@ -2,11 +2,13 @@ package org.zerock.controller;
 
 import lombok.extern.log4j.Log4j;
 import net.coobird.thumbnailator.Thumbnailator;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -21,8 +23,6 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.UUID;
-
-import static jdk.nashorn.internal.objects.NativeArray.lastIndexOf;
 
 @Controller
 @Log4j
@@ -96,6 +96,7 @@ public class UploadController {
 
             uploadFileName = uploadFileName.substring(uploadFileName.lastIndexOf("\\") + 1);
             log.info("Only File Name: " + uploadFileName);
+            attachDTO.setFileName(uploadFileName);
 
             UUID uuid = UUID.randomUUID();
 
@@ -131,6 +132,28 @@ public class UploadController {
         }   // end for
 
         return new ResponseEntity<>(list, HttpStatus.OK);
+    }
+
+    @GetMapping("/display")
+    @ResponseBody
+    public ResponseEntity<byte[]> getFile(String fileName){
+
+        log.info("filename: " + fileName);
+        File file = new File("/Users/kimminsu/upload/temp/" + fileName);
+
+        log.info("file: " + file);
+
+        ResponseEntity<byte[]> result = null;
+
+        try{
+            HttpHeaders header = new HttpHeaders();
+
+            header.add("Content-Type", Files.probeContentType(file.toPath()));
+            result = new ResponseEntity<>(FileCopyUtils.copyToByteArray(file), header, HttpStatus.OK);
+        } catch ( Exception e){
+            e.printStackTrace();
+        }
+        return result;
     }
 
 
