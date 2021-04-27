@@ -6,6 +6,7 @@ import lombok.extern.log4j.Log4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.zerock.domain.BoardAttachVO;
 import org.zerock.domain.BoardVO;
 import org.zerock.domain.Criteria;
 import org.zerock.mapper.BoardAttachMapper;
@@ -94,5 +95,14 @@ public class BoardServiceImpl implements BoardService{
         log.info("get total count");
 
         return mapper.getTotalCount(cri);
+    }
+
+    // 26.1 BoardService 수정
+    @Override
+    public List<BoardAttachVO> getAttachList(Long bno) {
+
+        log.info("get Attach list by bno: " + bno);
+
+        return attachMapper.findByBno(bno);
     }
 }
