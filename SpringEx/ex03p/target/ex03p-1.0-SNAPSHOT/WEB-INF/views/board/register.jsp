@@ -167,9 +167,10 @@
                     return false;
                 }
 
-                console.log("input type file change ajax 전")
-                console.log("file name : " + files[i].name);
-                console.log("file size : " + files[i].size);
+                //
+                // console.log("input type file change ajax 전")
+                // console.log("file name : " + files[i].name);
+                // console.log("file size : " + files[i].size);
 
                 formData.append("uploadFile", files[i]);
             }
@@ -183,11 +184,87 @@
                dataType: 'json',
                success: function(result){
                    console.log(result);
+                   showUploadResult(result);
                }
             }); // $.ajax
 
-        });
-    });
+        });  // input file change
+
+        function showUploadResult(uploadResultArr){
+
+            if(!uploadResultArr || uploadResultArr.length == 0) { return; }
+
+            var uploadUL = $(".uploadResult ul");
+
+            var str = "";
+
+            $(uploadResultArr).each(function(i, obj){
+
+                // image type
+                if(obj.image){
+                    var fileCallPath = encodeURIComponent( obj.uploadPath + "/s_" + obj.uuid + "_" + obj.fileName);
+                    str += "<li><div>";
+                    str += "<span> " + obj.fileName + "</span>";
+                    str += "<button type='button' class='btn btn-warning btn-circle' data-type='image' data-file=\'"+ fileCallPath+ "\'><i class='fa fa-times'></i></button><br>";
+                    str += "<img src='/display?fileName=" + fileCallPath+ "'>";
+                    str += "</div>";
+                    str + "</li>";
+                    // str += "<li><div><a href='/download?fileName="+fileCallPath+ "'><img src='/resources/img/attach.png'>" + obj.fileName + "</a>" +
+                    //     "<span data-file=\'" + fileCallPath+ "\' data-type='file'> x </span>" + "</div></li>";
+
+                }else{
+
+                    var fileCallPath = encodeURIComponent( obj.uploadPath + "/" + obj.uuid + "_" + obj.fileName);
+
+                    var fileLink = fileCallPath.replace(new RegExp(/\\/g), "/");
+
+                    str += "<li><div>";
+                    str += "<span> " + obj.fileName + "</span>";
+                    str += "<button type='button' class='btn btn-warning btn-circle' data-type='file' data-file=\'"+ fileCallPath+ "\'><i class='fa fa-times'></i></button><br>";
+                    str += "<img src='${pageContext.request.contextPath}/resources/img/attach.png'></a>";
+                    str += "</div>";
+                    str + "</li>";
+
+                    // 예전 코드
+                    // var fileCallPath = encodeURIComponent( obj.uploadPath + "/s_" + obj.uuid + "_" + obj.fileName);
+                    //
+                    // var originPath = obj.uploadPath + "\\" + obj.uuid + "_" + obj.fileName;
+                    //
+                    // originPath = originPath.replace(new RegExp(/\\/g), "/");
+                    //
+                    // str += "<li><a href=\"javascript:showImage(\'"+ originPath+ "\')\"><img src='/display?fileName=" + fileCallPath +"'>" + obj.fileName + "</a>" +
+                    //     "<span data-file=\'" + fileCallPath+ "\' data-type='image'> x </span>" + "</li>";
+                }
+
+            });
+
+            uploadUL.append(str);
+        }   // showUploadResult function
+
+        $(".uploadResult").on("click", "button", function(e){
+
+            console.log("delete file");
+
+            var targetFile = $(this).data("file");
+            var type = $(this).data("type");
+
+            var targetLi = $(this).closest("li");
+
+            $.ajax({
+               url: '/deleteFile',
+               data: {fileName: targetFile, type: type},
+               dataType: 'text',
+               type: 'POST',
+               success: function(result){
+                   alert(result);
+                   targetLi.remove();
+               } // success
+            }); // end ajax
+
+        }); // uploadResult button click
+
+
+    }); // $.(document).ready()
 </script>
 </body>
 
