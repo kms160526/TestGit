@@ -88,6 +88,7 @@
 </div>
 <!-- /.row -->
 
+<%@include file="../includes/footer.jsp" %>
 <script type="text/javascript">
     $(document).ready(function() {
 
@@ -127,7 +128,6 @@
 
     });
 </script>
-
 </body>
 
 </html>

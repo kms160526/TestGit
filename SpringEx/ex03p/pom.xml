@@ -185,6 +185,13 @@
       <version>2.6.1</version>
     </dependency>
 
+    <!-- https://mvnrepository.com/artifact/net.coobird/thumbnailator -->
+    <dependency>
+      <groupId>net.coobird</groupId>
+      <artifactId>thumbnailator</artifactId>
+      <version>0.4.8</version>
+    </dependency>
+
 
   </dependencies>
   <build>

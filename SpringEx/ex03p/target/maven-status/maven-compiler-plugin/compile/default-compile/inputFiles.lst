@@ -2,9 +2,13 @@
 /Users/kimminsu/Documents/SpringEx/ex03p/src/main/java/org/zerock/mapper/BoardMapper.java
 /Users/kimminsu/Documents/SpringEx/ex03p/src/main/java/org/zerock/domain/Ticket.java
 /Users/kimminsu/Documents/SpringEx/ex03p/src/main/java/org/zerock/domain/SampleVO.java
+/Users/kimminsu/Documents/SpringEx/ex03p/src/main/java/org/zerock/mapper/BoardAttachMapper.java
+/Users/kimminsu/Documents/SpringEx/ex03p/src/main/java/org/zerock/domain/BoardAttachVO.java
 /Users/kimminsu/Documents/SpringEx/ex03p/src/main/java/org/zerock/controller/BoardController.java
+/Users/kimminsu/Documents/SpringEx/ex03p/src/main/java/org/zerock/controller/UploadController.java
 /Users/kimminsu/Documents/SpringEx/ex03p/src/main/java/org/zerock/service/ReplyServiceImpl.java
 /Users/kimminsu/Documents/SpringEx/ex03p/src/main/java/org/zerock/controller/SampleController.java
+/Users/kimminsu/Documents/SpringEx/ex03p/src/main/java/org/zerock/domain/AttachFileDTO.java
 /Users/kimminsu/Documents/SpringEx/ex03p/src/main/java/org/zerock/domain/BoardVO.java
 /Users/kimminsu/Documents/SpringEx/ex03p/src/main/java/org/zerock/domain/ReplyPageDTO.java
 /Users/kimminsu/Documents/SpringEx/ex03p/src/main/java/org/zerock/service/BoardServiceImpl.java

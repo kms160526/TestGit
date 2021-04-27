@@ -11,6 +11,8 @@ import org.zerock.domain.Criteria;
 import org.zerock.domain.PageDTO;
 import org.zerock.service.BoardService;
 
+import java.util.List;
+
 @Controller
 @Log4j
 @RequestMapping("/board/*")
@@ -23,7 +25,16 @@ public class BoardController {
     public void list(Model model, Criteria cri){
 
         log.info("list: " + cri);
-        model.addAttribute("list", service.getList(cri));
+
+
+
+        // list 가 bno의 역순으로 view에서 출력되는 문제가 발생
+        // list에 순서에 맞게 들어갔는지 점검
+        List<BoardVO> list = service.getList(cri);
+//        list.forEach(board -> log.info(board));
+//      체크완료. 정상적으로 출력
+
+        model.addAttribute("list", list);
 
         int total = service.getTotal(cri);
 
@@ -54,14 +65,18 @@ public class BoardController {
 
     // 원래의 get 메서드는 게시물의 번호만 받도록 처리 -> Criteria를 파라미터로 추가해서 전달
     @GetMapping({"/get", "/modify"})
-    public void get(@RequestParam("bno") Long bno, @ModelAttribute("Cri") Criteria cri, Model model){
+    public void get(@RequestParam("bno") Long bno, @ModelAttribute("cri") Criteria cri, Model model){
 
         log.info("/get or /modify");
+
+        // cri 값을 가져오는지 테스
+//        log.info();트
+
         model.addAttribute("board", service.get(bno));
     }
 
     @PostMapping("/modify")
-    public String modify(BoardVO board, @ModelAttribute("Cri") Criteria cri, RedirectAttributes rttr){
+    public String modify(BoardVO board, @ModelAttribute("cri") Criteria cri, RedirectAttributes rttr){
         log.info("modify: " + board);
 
         if(service.modify(board)){
@@ -77,7 +92,7 @@ public class BoardController {
     }
 
     @PostMapping("/remove")
-    public String remove(@RequestParam("bno") Long bno, @ModelAttribute("Cri") Criteria cri, RedirectAttributes rttr){
+    public String remove(@RequestParam("bno") Long bno, @ModelAttribute("cri") Criteria cri, RedirectAttributes rttr){
 
         log.info("remove..." + bno);
         if(service.remove(bno)){

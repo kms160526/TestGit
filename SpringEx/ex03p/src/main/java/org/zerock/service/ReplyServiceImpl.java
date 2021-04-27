@@ -23,6 +23,7 @@ public class ReplyServiceImpl implements ReplyService {
     @Setter(onMethod_ = @Autowired)
     private BoardMapper boardMapper;
 
+
     @Transactional
     @Override
     public int register(ReplyVO vo) {
