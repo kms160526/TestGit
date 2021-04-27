@@ -69,6 +69,9 @@ public class BoardServiceImpl implements BoardService{
 
         log.info("remove......." + bno);
 
+        // 첨부파일의 삭제가 같이 일어난다.
+        attachMapper.deleteAll(bno);
+
         return mapper.delete(bno) == 1;
     }
 
