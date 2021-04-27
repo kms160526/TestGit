@@ -88,6 +88,84 @@
 </div>
 <!-- /.row -->
 
+
+<!-- bigPictureWrapper -->
+<div class='bigPictureWrapper'>
+    <div class='bigPicture'>
+    </div>
+</div>
+
+<style>
+    .uploadResult {
+        width: 100%;
+        background-color: gray;
+    }
+
+    .uploadResult ul {
+        display: flex;
+        flex-flow: row;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .uploadResult ul li {
+        list-style: none;
+        padding: 10px;
+    }
+
+    .uploadResult ul li img {
+        width: 100px;
+    }
+
+    .bigPictureWrapper {
+        position: absolute;
+        display: none;
+        justify-content: center;
+        align-items: center;
+        top:0%;
+        width:100%;
+        height:100%;
+        background-color: gray;
+        z-index: 100;
+    }
+
+    .bigPicture {
+        position: relative;
+        display:flex;
+        justify-content: center;
+        align-items: center;
+    }
+</style>
+
+<!-- 파일 업로드 영역 -->
+<div class="row">
+    <div class="col-lg-12">
+        <div class="panel panel-default">
+
+            <div class="panel-heading">Files</div>
+            <!-- /.panel -heading -->
+            <div class="panel-body">
+                <div class="form-group uploadDiv">
+                    <input type="file" name='uploadFile' multiple="multiple">
+                </div>
+
+                <div class="uploadResult">
+                    <ul>
+
+                    </ul>
+                </div>
+
+            </div>
+            <!-- end panel-body-->
+
+        </div>
+        <!-- end panel-default -->
+    </div>
+    <!-- end panel -->
+</div>
+<!-- /.row -->
+
+
 <%@include file="../includes/footer.jsp" %>
 <script type="text/javascript">
     $(document).ready(function() {
@@ -127,6 +205,71 @@
         });
 
     });
+</script>
+<script>
+    $(document).ready(function(){
+        (function(){
+
+            var bno = '<c:out value="${board.bno}"/>';
+
+            $.getJSON("/board/getAttachList", {bno:bno}, function(arr){
+                console.log(arr);
+
+                var str = "";
+
+                $(arr).each(function(i, attach){
+
+                    // image 인 경우
+                    if(attach.fileType){
+                        var fileCallPath = encodeURIComponent(attach.uploadPath+ "/s_" + attach.uuid + "_" + attach.fileName);
+
+                        str += "<li data-path='" +attach.uploadPath+ "'";
+                        str += " data-uuid='" +attach.uuid+"' data-filename='" +attach.fileName+ "' data-type='"+attach.fileType+"'";
+                        str += "><div>";
+                        str += "<span> " + attach.fileName + "</span>";
+                        str += "<button type='button' class='btn btn-warning btn-circle' data-type='image' data-file=\'"+ fileCallPath+ "\'><i class='fa fa-times'></i></button><br>";
+                        str += "<img src='/display?fileName=" + fileCallPath+ "'>";
+                        str += "</div>";
+                        str + "</li>";
+
+                    } else{
+                        var fileCallPath = encodeURIComponent(attach.uploadPath+ "/" + attach.uuid + "_" + attach.fileName);
+
+                        str += "<li data-path='" +attach.uploadPath+ "'";
+                        str += " data-uuid='" +attach.uuid+"' data-filename='" +attach.fileName+ "' data-type='"+attach.fileType+"'";
+                        str += "><div>";
+                        str += "<span> " + attach.fileName + "</span>";
+                        str += "<button type='button' class='btn btn-warning btn-circle' data-type='image' data-file=\'"+ fileCallPath+ "\'><i class='fa fa-times'></i></button><br>";
+                        str += "<img src='${pageContext.request.contextPath}/resources/img/attach.png'>";
+                        str += "</div>";
+                        str + "</li>";
+
+                        // console.log("else 문에서의 fileCallPath: " + fileCallPath);
+
+                    }
+
+                });
+
+                $(".uploadResult ul").html(str);
+
+            });  //end getJSON
+        })();   // 즉시실행함수 종료
+
+
+        $(".uploadResult").on("click", "button", function(e){
+
+            console.log("delete file");
+
+            if(confirm("Remove this file? ")){
+
+                var targetLi = $(this).closest("li");
+                targetLi.remove();
+            }
+
+        }); // uploadResult button click
+
+    }); // end $(document).ready()
+
 </script>
 </body>
 

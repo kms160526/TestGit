@@ -241,7 +241,7 @@
                     str += "><div>";
                     str += "<span> " + obj.fileName + "</span>";
                     str += "<button type='button' class='btn btn-warning btn-circle' data-type='file' data-file=\'"+ fileCallPath+ "\'><i class='fa fa-times'></i></button><br>";
-                    str += "<img src='${pageContext.request.contextPath}/resources/img/attach.png'></a>";
+                    str += "<img src='${pageContext.request.contextPath}/resources/img/attach.png'>";
                     str += "</div>";
                     str + "</li>";
 
