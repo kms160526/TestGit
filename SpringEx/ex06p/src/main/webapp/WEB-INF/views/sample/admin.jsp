@@ -17,5 +17,7 @@
 <!-- all or member or domain-->
 <h1>/sample/admin page</h1>
 
+<a href="/customLogout">Logout</a>
+
 </body>
 </html>
