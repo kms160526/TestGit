@@ -1,6 +1,8 @@
 package org.zerock.controller;
 
 import lombok.extern.log4j.Log4j;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -38,6 +40,7 @@ public class CommonController {
     public void logoutGET(){
 
         log.info("custom logout");
+
     }
 
 
