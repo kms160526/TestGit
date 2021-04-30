@@ -7,3 +7,4 @@
 /Users/kimminsu/Documents/SpringEx/ex06p/src/main/java/org/zerock/controller/SampleController.java
 /Users/kimminsu/Documents/SpringEx/ex06p/src/main/java/org/zerock/domain/MemberVO.java
 /Users/kimminsu/Documents/SpringEx/ex06p/src/main/java/org/zerock/security/CustomUserDetailsService.java
+/Users/kimminsu/Documents/SpringEx/ex06p/src/main/java/org/zerock/security/domain/CustomUser.java
