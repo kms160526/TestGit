@@ -1,5 +1,9 @@
 /Users/kimminsu/Documents/SpringEx/ex06p/src/main/java/org/zerock/security/CustomNoOpPasswordEncoder.java
 /Users/kimminsu/Documents/SpringEx/ex06p/src/main/java/org/zerock/security/CustomLoginSuccessHandler.java
+/Users/kimminsu/Documents/SpringEx/ex06p/src/main/java/org/zerock/mapper/MemberMapper.java
+/Users/kimminsu/Documents/SpringEx/ex06p/src/main/java/org/zerock/domain/AuthVO.java
 /Users/kimminsu/Documents/SpringEx/ex06p/src/main/java/org/zerock/controller/CommonController.java
 /Users/kimminsu/Documents/SpringEx/ex06p/src/main/java/org/zerock/security/CustomAccessDeniedHandler.java
 /Users/kimminsu/Documents/SpringEx/ex06p/src/main/java/org/zerock/controller/SampleController.java
+/Users/kimminsu/Documents/SpringEx/ex06p/src/main/java/org/zerock/domain/MemberVO.java
+/Users/kimminsu/Documents/SpringEx/ex06p/src/main/java/org/zerock/security/CustomUserDetailsService.java

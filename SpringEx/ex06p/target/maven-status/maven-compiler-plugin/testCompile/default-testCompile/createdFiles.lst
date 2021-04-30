@@ -1,3 +1,4 @@
+org/zerock/mapper/MemberMapperTests.class
 org/zerock/persistence/DataSourceTests.class
 org/zerock/security/MemberTests.class
 org/zerock/persistence/JDBCTests.class
