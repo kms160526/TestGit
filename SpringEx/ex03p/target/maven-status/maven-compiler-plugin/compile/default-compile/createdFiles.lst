@@ -4,10 +4,13 @@ org/zerock/domain/ReplyVO.class
 org/zerock/service/ReplyService.class
 org/zerock/domain/AttachFileDTO.class
 org/zerock/domain/PageDTO.class
+org/zerock/domain/MemberVO.class
 org/zerock/mapper/BoardMapper.class
 org/zerock/domain/Criteria.class
 org/zerock/controller/UploadController.class
 org/zerock/controller/BoardController.class
+org/zerock/domain/AuthVO.class
 org/zerock/service/BoardServiceImpl.class
 org/zerock/service/BoardService.class
+org/zerock/controller/CommonController.class
 org/zerock/service/ReplyServiceImpl.class

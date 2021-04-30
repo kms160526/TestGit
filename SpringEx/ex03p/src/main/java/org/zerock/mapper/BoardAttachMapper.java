@@ -14,4 +14,7 @@ public interface BoardAttachMapper {
 
     public void deleteAll(Long bno);
 
+    // 첨부파일의 목록을 가져오는 메서드
+    public List<BoardAttachVO> getOldFiles();
+
 }
